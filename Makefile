@@ -6,12 +6,12 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/05 17:40:16 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/17 20:29:11 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/17 20:35:59 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= ft_gkrellm
-FILES	= main.cpp
+FILES	= main.cpp mainwindow.cpp
 OBJS	= $(FILES:%.cpp=.obj/%.o)
 INC 	= 
 FLAGS	= -Wall -Wextra -Werror
