@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         Qtwindow.cpp \
     MonitorNcurses.cpp \
-    IMonitorDisplay.cpp
+    IMonitorDisplay.cpp \
+    MonitorQt.cpp
 
 HEADERS  += Qtwindow.h \
     IMonitorDisplay.hpp \
-    MonitorNcurses.hpp
+    MonitorNcurses.hpp \
+    MonitorQt.hpp
 
 LIBS     += -lncurses
 
