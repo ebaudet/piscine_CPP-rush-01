@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Module.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/18 20:54:30 by ebaudet           #+#    #+#             */
-/*   Updated: 2015/01/18 21:00:43 by ebaudet          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef MODULE_HPP
 # define MODULE_HPP
 
@@ -33,6 +21,8 @@ class Module : public IMonitorModule
         void            setSizeY(int);
         void            setX(int);
         void            setY(int);
+        virtual std::string     getData(void);
+        virtual int             typeData(void);
     protected:
         std::string const  _name;
         int                _size_x;

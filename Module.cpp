@@ -66,3 +66,14 @@ int             Module::getY(){
 int             Module::getX(){
     return this->_x ;
 }
+std::string     HostModule::getData(void) {
+    std::string     result;
+
+    result << "EMPTY MODULE" << std::endl;
+
+    return result;
+}
+
+int         HostModule::typeData(void) {
+    return 1;
+}
