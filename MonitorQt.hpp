@@ -13,9 +13,16 @@
 #ifndef MONITORQT_HPP
 # define MONITORQT_HPP
 
+#include "Qtwindow.h"
 #include "IMonitorDisplay.hpp"
 #include <QApplication>
-#include "Qtwindow.h"
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QWidget>
+#include <QLabel>
+#include <QLineEdit>
+#include <QProgressBar>
+#include <QSlider>
 #include <iostream>
 #include <vector>
 
@@ -36,6 +43,7 @@ public:
 	// member functions
 	void	init();
 	void	quit();
+    void    play();
     int     addWidget(void);
 
     // getters & setters
