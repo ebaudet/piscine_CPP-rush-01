@@ -4,6 +4,7 @@
 #include "MonitorNcurses.hpp"
 #include "Module.hpp"
 #include "HostModule.hpp"
+#include "OsModule.hpp"
 
 
 int main(int argc, char *argv[])
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
         MonitorQt display(argc, argv);
 
         display.addModule(new HostModule());
+        display.addModule(new OsModule());
         display.init();
         display.play();
         display.quit();

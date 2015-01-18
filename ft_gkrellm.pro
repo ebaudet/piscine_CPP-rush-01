@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     MonitorQt.cpp \
     IMonitorModule.cpp \
     Module.cpp \
-    HostModule.cpp
+    HostModule.cpp \
+    OsModule.cpp
 
 HEADERS  += Qtwindow.h \
     IMonitorDisplay.hpp \
@@ -27,7 +28,8 @@ HEADERS  += Qtwindow.h \
     MonitorQt.hpp \
     IMonitorModule.hpp \
     Module.hpp \
-    HostModule.hpp
+    HostModule.hpp \
+    OsModule.hpp
 
 LIBS     += -lncurses
 
