@@ -70,6 +70,7 @@ void    drawModule(struct s_mod *struc){
     int y;
     getmaxyx(stdscr, y, x);
 
+    mvprintw(8, ((x / 2) - 18), struc->module->getName().c_str());
     for (int i = struc->module->getY(); i < struc->module->getY() + struc->module->getSizeY(); i++){
         mvwprintw(stdscr, i, (x / 2) - 21, "*");
         mvwprintw(stdscr, i, ((x / 2) - 21) + 41, "*");
@@ -79,7 +80,6 @@ void    drawModule(struct s_mod *struc){
         mvwprintw(stdscr, struc->module->getY() + 8, i, "*");
     }
     std::string test = struc->module->getData();
-    mvprintw(12, ((x / 2) - 18), test.c_str());
 }
 
 void    MonitorNcurses::init(){
@@ -94,6 +94,9 @@ void    MonitorNcurses::init(){
     wborder(stdscr, 0, 0, 0, 0, 0, 0, 0, 0);
     initModules();
     for_each(this->_mod.begin(), this->_mod.end(), drawModule);
+    std::string test = this->_mod.front()->module->getData();
+    mvprintw(12, ((this->_x / 2) - 18), test.c_str());
+    mvprintw(42, ((this->_x / 2) - 18), test.c_str());
     refresh();
     return ;
 }
