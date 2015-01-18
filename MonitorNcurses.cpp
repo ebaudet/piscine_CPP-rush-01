@@ -1,8 +1,7 @@
 #include "MonitorNcurses.hpp"
 
-MonitorNcurses::MonitorNcurses()
-{
-
+MonitorNcurses::MonitorNcurses(){
+    return ;
 }
 
 MonitorNcurses::MonitorNcurses(MonitorNcurses const & src)
@@ -14,7 +13,7 @@ MonitorNcurses::MonitorNcurses(MonitorNcurses const & src)
 
 MonitorNcurses::~MonitorNcurses()
 {
-
+    return ;
 }
 
 MonitorNcurses &    MonitorNcurses::operator=(MonitorNcurses const & rhs){

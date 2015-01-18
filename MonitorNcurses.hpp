@@ -7,9 +7,9 @@ class MonitorNcurses : public IMonitorDisplay{
     public:
         MonitorNcurses();
         MonitorNcurses(MonitorNcurses const & src);
-        ~MonitorNcurses();
+        virtual ~MonitorNcurses();
         MonitorNcurses & operator=(MonitorNcurses const & rhs);
-        void    init();
+        virtual void    init();
 };
 
 #endif // MONITORNCURSES_HPP
