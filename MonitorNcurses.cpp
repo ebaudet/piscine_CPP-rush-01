@@ -41,9 +41,8 @@ void    MonitorNcurses::init(){
     attron(COLOR_PAIR(1));
     wborder(stdscr, 0, 0, 0, 0, 0, 0, 0, 0);
 //    mvprintw(0, 0, "Nb module = %d, Module name = %s ", this->_modules.size() ,this->_modules[0]->getName().c_str());
-    WINDOW *host = newwin(25, 25, 2, 2);
+    WINDOW *host = subwin(stdscr, 25, 25, 50, 50);
     mvwprintw(host, 5, 5, "Field");
-    wrefresh(host);
     refresh();
     return ;
 }

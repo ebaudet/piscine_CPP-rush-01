@@ -13,8 +13,20 @@ class Module : public IMonitorModule
         Module & operator=(Module const & rhs);
         virtual ~Module();
         std::string     getName() const;
+        int             getSizeX();
+        int             getSizeY();
+        int             getX();
+        int             getY();
+        void            setSizeX(int);
+        void            setSizeY(int);
+        void            setX(int);
+        void            setY(int);
     protected:
         std::string const  _name;
+        int                _size_x;
+        int                _size_y;
+        int                _x;
+        int                _y;
 };
 
 #endif // MODULE_HPP
