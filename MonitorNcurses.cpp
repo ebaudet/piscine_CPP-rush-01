@@ -39,3 +39,19 @@ void    MonitorNcurses::quit(){
     std::cout << "this is the end" << std::endl;
     exit(0);
 }
+
+int     MonitorNcurses::getX(){
+    return this->_x;
+}
+
+int     MonitorNcurses::getY(){
+    return this->_y;
+}
+
+void    MonitorNcurses::setX(int x){
+    this->_x = x;
+}
+
+void    MonitorNcurses::setY(int y){
+    this->_y = y;
+}

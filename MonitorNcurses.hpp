@@ -4,8 +4,10 @@
 # include <ncurses.h>
 # include <iostream>
 # include <string>
+# include <vector>
 # include "IMonitorDisplay.hpp"
 
+template <typename T>
 class MonitorNcurses : public IMonitorDisplay{
     public:
         MonitorNcurses();
@@ -14,6 +16,14 @@ class MonitorNcurses : public IMonitorDisplay{
         MonitorNcurses & operator=(MonitorNcurses const & rhs);
         virtual void    init();
         virtual void    quit();
+        int             getX();
+        int             getY();
+        void            setY(int);
+        void            setX(int);
+    protected:
+        int                 _x;
+        int                 _y;
+        std::vector<T>  modules;
 };
 
 #endif // MONITORNCURSES_HPP
