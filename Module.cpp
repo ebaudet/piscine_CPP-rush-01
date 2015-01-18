@@ -52,5 +52,5 @@ int             Module::getY(){
 }
 
 int             Module::getX(){
-    return this->_x;
+    return this->_x ;
 }

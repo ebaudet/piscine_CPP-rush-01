@@ -7,9 +7,10 @@
 # include <vector>
 # include <list>
 # include "IMonitorDisplay.hpp"
-# include <menu.h>
 # include "Module.hpp"
 # include "HostModule.hpp"
+# include <ncurses.h>
+# include <algorithm>
 
 class MonitorNcurses : public IMonitorDisplay{
     public:
@@ -28,9 +29,18 @@ class MonitorNcurses : public IMonitorDisplay{
         void            update();
 //        std::vector<Module *>     getModules();
         std::vector<Module *> _modules;
+        std::vector<struct s_mod *>    _mod;
     protected:
         int                 _x;
         int                 _y;
 };
+
+struct           s_mod
+{
+    Module      *module;
+    WINDOW      *win;
+};
+
+void            drawModule(struct s_mod *);
 
 #endif // MONITORNCURSES_HPP

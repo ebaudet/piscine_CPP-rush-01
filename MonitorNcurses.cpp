@@ -1,5 +1,7 @@
 #include "MonitorNcurses.hpp"
 
+typedef struct s_mod t_mod;
+
 MonitorNcurses::MonitorNcurses(){
     return ;
 }
@@ -26,11 +28,26 @@ MonitorNcurses &    MonitorNcurses::operator=(MonitorNcurses const & rhs){
 //}
 
 void    MonitorNcurses::initModules(){
-    this->_modules.push_back(new HostModule());
+    struct s_mod *host = new struct s_mod();
+    host->module = new HostModule();
+    host->module->setSizeY(4);
+    host->module->setSizeX(8);
+    host->module->setX((this->_x / 2) - 4);
+    host->module->setY(0);
+//    host->win = subwin(stdscr, host->module->getSizeY(), host->module->getSizeX(), host->module->getY(), host->module->getY());
+    host->win = subwin(stdscr, 4, 8, 42, 42);
+    this->_mod.push_back(host);
+}
+
+void    drawModule(struct s_mod *struc){
+    for (int i = 0; i < 8; i++){
+        mvwprintw(struc->win, i, 21, "*");
+        mvwprintw(struc->win, i, 42, "*");
+    }
+    wrefresh(struc->win);
 }
 
 void    MonitorNcurses::init(){
-    initModules();
     initscr();
     getmaxyx(stdscr, this->_y, this->_x);
     curs_set(FALSE);
@@ -40,16 +57,17 @@ void    MonitorNcurses::init(){
     init_pair(1, COLOR_RED, COLOR_BLACK);
     attron(COLOR_PAIR(1));
     wborder(stdscr, 0, 0, 0, 0, 0, 0, 0, 0);
+    initModules();
+    for_each(this->_mod.begin(), this->_mod.end(), drawModule);
+
 //    mvprintw(0, 0, "Nb module = %d, Module name = %s ", this->_modules.size() ,this->_modules[0]->getName().c_str());
-    WINDOW *host = subwin(stdscr, 25, 25, 50, 50);
-    mvwprintw(host, 5, 5, "Field");
-    refresh();
+//    refresh();
     return ;
 }
 void    MonitorNcurses::quit(){
     endwin();
-    std::cout << "Size = " << this->_modules.size() << std::endl;
-//    std::cout << "Size = " << this->_modules.front()->getName().c_str() << std::endl;
+//    std::cout << "Size = " << this->_modules.size() << std::endl;
+    std::cout << "STRUCT Size = " << this->_mod.size() << " , size y = " << this->_mod.front()->module->getSizeY() << std::endl;
     exit(0);
 }
 
