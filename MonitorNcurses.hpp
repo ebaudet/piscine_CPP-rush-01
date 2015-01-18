@@ -5,6 +5,7 @@
 # include <iostream>
 # include <string>
 # include <vector>
+# include <list>
 # include "IMonitorDisplay.hpp"
 # include <menu.h>
 # include "Module.hpp"
@@ -25,12 +26,11 @@ class MonitorNcurses : public IMonitorDisplay{
         void            setX(int);
         void            play();
         void            update();
-        std::vector<Module *>     getModules();
+//        std::vector<Module *>     getModules();
         std::vector<Module *> _modules;
     protected:
         int                 _x;
         int                 _y;
-        Module              *_host;
 };
 
 #endif // MONITORNCURSES_HPP
