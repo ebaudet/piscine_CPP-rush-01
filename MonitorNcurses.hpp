@@ -6,6 +6,7 @@
 # include <string>
 # include <vector>
 # include "IMonitorDisplay.hpp"
+# include <menu.h>
 
 class MonitorNcurses : public IMonitorDisplay{
     public:
@@ -19,6 +20,8 @@ class MonitorNcurses : public IMonitorDisplay{
         int             getY();
         void            setY(int);
         void            setX(int);
+        void            play();
+        void            update();
     protected:
         int                 _x;
         int                 _y;

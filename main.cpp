@@ -9,15 +9,13 @@
 #include <QProgressBar>
 #include <QSlider>
 #include "MonitorNcurses.hpp"
+#include "IMonitorDisplay.hpp"
 
 int main(int argc, char *argv[])
 {
     if (argv[1]){
         MonitorNcurses w;
         w.init();
-        while (42){
-
-        }
         w.quit();
         return 0;
     }

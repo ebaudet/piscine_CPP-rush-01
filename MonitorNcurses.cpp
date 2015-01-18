@@ -23,7 +23,7 @@ MonitorNcurses &    MonitorNcurses::operator=(MonitorNcurses const & rhs){
 
 void    MonitorNcurses::init(){
     initscr();
-//    getmaxyx(stdscr, this->_heigth, this->_width);
+    getmaxyx(stdscr, this->_y, this->_x);
     curs_set(FALSE);
     keypad(stdscr, TRUE);
     timeout(25);
@@ -54,4 +54,25 @@ void    MonitorNcurses::setX(int x){
 
 void    MonitorNcurses::setY(int y){
     this->_y = y;
+}
+
+void    MonitorNcurses::update(){
+
+}
+
+void    MonitorNcurses::play(){
+    int key;
+    while (42){
+        while ((key = getch()) != ERR){
+             if (key == KEY_UP){
+
+                }
+            else if (key == KEY_DOWN){
+
+            }
+            else if (key == ' '){
+
+            }
+        }
+    }
 }
