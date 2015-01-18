@@ -9,19 +9,22 @@
 int main(int argc, char *argv[])
 {
     if (argv[1]){
-        MonitorNcurses w;
-        w.init();
-        w.play();
-        w.quit();
+        MonitorNcurses display;
+
+        display.init();
+        display.play();
+        display.quit();
+
         return 0;
     }
     else
     {
-        MonitorQt qt(argc, argv);
-        qt.init();
-        qt.play();
-        qt.quit();
+        MonitorQt display(argc, argv);
 
-        return qt.getQA()->exec();
+        display.init();
+        display.play();
+        display.quit();
+
+        return display.getQA()->exec();
     }
 }
