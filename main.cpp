@@ -8,13 +8,19 @@
 #include <QVBoxLayout>
 #include <QProgressBar>
 #include <QSlider>
+#include <ncurses.h>
 
 
 int main(int argc, char *argv[])
 {
+    if (argv[1]){
+        initscr();
+        std::cout << "test OK" << std::endl;
+        return 0;
+    }
+
     QApplication a(argc, argv);
     QtWindow w;
-
 
     // 1 : Créer le QTabWidget
     QTabWidget *onglets = new QTabWidget(&w);
