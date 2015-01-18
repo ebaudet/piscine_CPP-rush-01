@@ -21,7 +21,8 @@ SOURCES += main.cpp\
 HEADERS  += Qtwindow.h \
     IMonitorDisplay.hpp \
     MonitorNcurses.hpp \
-    MonitorQt.hpp
+    MonitorQt.hpp \
+    IMonitorModule.hpp
 
 LIBS     += -lncurses
 
