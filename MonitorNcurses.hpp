@@ -28,7 +28,7 @@ class MonitorNcurses : public IMonitorDisplay{
         void            play();
         void            update();
 //        std::vector<Module *>     getModules();
-        std::vector<Module *> _modules;
+//        std::vector<Module *> _modules;
         std::vector<struct s_mod *>    _mod;
     protected:
         int                 _x;
