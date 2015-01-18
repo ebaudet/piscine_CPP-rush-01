@@ -3,8 +3,13 @@
 
 class IMonitorDisplay{
     public:
+        virtual void init() = 0;
         virtual ~IMonitorDisplay() = 0;
 };
+
+IMonitorDisplay::~IMonitorDisplay(){
+
+}
 
 #endif // IMONITORDISPLAY
 
