@@ -12,7 +12,7 @@ HostModule::HostModule() : Module("Hostname / Username")
 
 }
 
-HostModule::HostModule(HostModule const & src) : Module("Hostname / Username")
+HostModule::HostModule(HostModule const &) : Module("Hostname / Username")
 {
 
 }
@@ -32,16 +32,30 @@ std::string     HostModule::getData(void) {
     struct passwd *passwd;
     std::string     result;
 
-    struct utsname test;
+    result.append("SYSNAME : ");
+    result.append(data.sysname);
+    result.append("\n");
 
-    result << "SYSNAME : " << data.sysname << std::endl;
-    result << "NODEMANE : " << data.nodename << std::endl;
-    result << "RELEASE : " << data.release << std::endl;
-    result << "VERSION : " << data.version << std::endl;
-    result << "MACHINE :" << data.machine << std::endl;
+    result.append("NODENAME : ");
+    result.append(data.nodename);
+    result.append("\n");
+
+    result.append("RELEASE : ");
+    result.append(data.release);
+    result.append("\n");
+
+    result.append("VERSION : ");
+    result.append(data.version);
+    result.append("\n");
+
+    result.append("MACHINE :");
+    result.append(data.machine);
+    result.append("\n");
 
     passwd = getpwuid(getuid());
-    result << "USERNAME : " << passwd->pw_name << std::endl;
+    result.append("USERNAME :");
+    result.append(passwd->pw_name);
+    result.append("\n");
 
     return result;
 }

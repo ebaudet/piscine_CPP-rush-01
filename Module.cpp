@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Module.hpp"
+#include <iostream>
 
 Module::Module(std::string const & name) : _name(name)
 {
@@ -66,14 +67,14 @@ int             Module::getY(){
 int             Module::getX(){
     return this->_x ;
 }
-std::string     HostModule::getData(void) {
+std::string     Module::getData(void) {
     std::string     result;
 
-    result << "EMPTY MODULE" << std::endl;
+    result.append("EMPTY MODULE\n");
 
     return result;
 }
 
-int         HostModule::typeData(void) {
+int         Module::typeData(void) {
     return 1;
 }
