@@ -39,7 +39,7 @@ MonitorQt::~MonitorQt(void)
 void	MonitorQt::init() {
 	std::cout << "appel a MonitorQt::init()" << std::endl;
 
-    // 2 : Créer les pages, en utilisant un widget parent pour contenir chacune des pages
+ /*   // 2 : Créer les pages, en utilisant un widget parent pour contenir chacune des pages
     QWidget *page1 = new QWidget;
     QWidget *page2 = new QWidget;
     QLabel *page3 = new QLabel; // Comme un QLabel est aussi un QWidget (il en hérite), on peut aussi s'en servir de page
@@ -81,7 +81,7 @@ void	MonitorQt::init() {
     // 4 : ajouter les onglets au QTabWidget, en indiquant la page qu'ils contiennent
     this->_onglets->addTab(page1, "Coordonnées");
     this->_onglets->addTab(page2, "Progression");
-    this->_onglets->addTab(page3, "Image");
+    this->_onglets->addTab(page3, "Image");*/
 }
 void	MonitorQt::quit() {
 	std::cout << "appel a MonitorQt::quit()" << std::endl;

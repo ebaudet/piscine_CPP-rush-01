@@ -34,24 +34,8 @@ std::string     HostModule::getData(void) {
 
     uname(&data);
 
-    result.append("SYSNAME : ");
-    result.append(data.sysname);
-    result.append("\n");
-
-    result.append("NODENAME : ");
+    result.append("HOSTNAME : ");
     result.append(data.nodename);
-    result.append("\n");
-
-    result.append("RELEASE : ");
-    result.append(data.release);
-    result.append("\n");
-
-    result.append("VERSION : ");
-    result.append(data.version);
-    result.append("\n");
-
-    result.append("MACHINE :");
-    result.append(data.machine);
     result.append("\n");
 
     passwd = getpwuid(getuid());
