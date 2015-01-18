@@ -26,9 +26,9 @@ MonitorQt::MonitorQt(int argc, char *argv[]) {
 MonitorQt::~MonitorQt(void)
 {
 	std::cout << "desctructeur MonitorQt" << std::endl;
+    delete this->_onglets;
     delete this->_qwindow;
     delete this->_qa;
-    delete this->_onglets;
 	return ;
 }
 
@@ -94,9 +94,22 @@ int     MonitorQt::addModule(Module *module) {
     int     position = std::distance(this->_modules.begin(), this->_modules.end());
 
     this->_modules.push_back(module);
-    QWidget *widget = new QWidget();
 
+
+    QWidget *widget = new QWidget();
     this->_onglets->addTab(widget, QString(module->getName().c_str()));
+
+
+    if (module->typeData() == 1)
+    {
+        QLabel *label = new QLabel();
+        label->setText(QString(module->getData().c_str()));
+
+        QVBoxLayout *vbox = new QVBoxLayout;
+        vbox->addWidget(label);
+        widget->setLayout(vbox);
+    }
+
     this->addWidget(widget);
     return position;
 }

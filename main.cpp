@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     {
         MonitorQt display(argc, argv);
 
+        display.addModule(new HostModule());
         display.init();
         display.play();
         display.quit();
