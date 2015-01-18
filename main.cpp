@@ -1,9 +1,7 @@
 #include <iostream>
 
 #include "MonitorQt.hpp"
-
 #include "MonitorNcurses.hpp"
-#include "IMonitorDisplay.hpp"
 #include "Module.hpp"
 #include "HostModule.hpp"
 
