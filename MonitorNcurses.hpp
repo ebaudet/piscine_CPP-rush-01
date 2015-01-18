@@ -7,7 +7,6 @@
 # include <vector>
 # include "IMonitorDisplay.hpp"
 
-template <typename T>
 class MonitorNcurses : public IMonitorDisplay{
     public:
         MonitorNcurses();
@@ -23,7 +22,7 @@ class MonitorNcurses : public IMonitorDisplay{
     protected:
         int                 _x;
         int                 _y;
-        std::vector<T>  modules;
+        std::vector<int>  modules;
 };
 
 #endif // MONITORNCURSES_HPP
