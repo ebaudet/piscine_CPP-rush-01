@@ -40,14 +40,17 @@ void    MonitorNcurses::init(){
     init_pair(1, COLOR_RED, COLOR_BLACK);
     attron(COLOR_PAIR(1));
     wborder(stdscr, 0, 0, 0, 0, 0, 0, 0, 0);
-    mvprintw(0, 0, "Nb module = %d ", this->_modules[0]->getName().c_str());
+//    mvprintw(0, 0, "Nb module = %d, Module name = %s ", this->_modules.size() ,this->_modules[0]->getName().c_str());
+    WINDOW *host = newwin(25, 25, 2, 2);
+    mvwprintw(host, 5, 5, "Field");
+    wrefresh(host);
     refresh();
     return ;
 }
 void    MonitorNcurses::quit(){
     endwin();
     std::cout << "Size = " << this->_modules.size() << std::endl;
-    std::cout << "Size = " << this->_modules.front()->getName() << std::endl;
+//    std::cout << "Size = " << this->_modules.front()->getName().c_str() << std::endl;
     exit(0);
 }
 

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     if (argv[1]){
         MonitorNcurses w;
         w.init();
-//        w.play();
+        w.play();
         w.quit();
         return 0;
     }
