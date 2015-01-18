@@ -21,7 +21,17 @@ MonitorNcurses &    MonitorNcurses::operator=(MonitorNcurses const & rhs){
     return *this;
 }
 
+std::vector<Module *> MonitorNcurses::getModules(){
+    return this->_modules;
+}
+
+void    MonitorNcurses::initModules(){
+    this->_host = new HostModule();
+    this->getModules().push_back(this->_host);
+}
+
 void    MonitorNcurses::init(){
+    initModules();
     initscr();
     getmaxyx(stdscr, this->_y, this->_x);
     curs_set(FALSE);
@@ -31,12 +41,14 @@ void    MonitorNcurses::init(){
     init_pair(1, COLOR_RED, COLOR_BLACK);
     attron(COLOR_PAIR(1));
     wborder(stdscr, 0, 0, 0, 0, 0, 0, 0, 0);
+//    mvprintw(0, 0, "Nb module = %d ", this->_modules[0]->getName().c_str());
     refresh();
     return ;
 }
 void    MonitorNcurses::quit(){
     endwin();
-    std::cout << "this is the end" << std::endl;
+    std::cout << "Size = " << this->_modules.size() << std::endl;
+//    std::cout << "Size = " << this->_modules.front()->getName() << std::endl;
     exit(0);
 }
 

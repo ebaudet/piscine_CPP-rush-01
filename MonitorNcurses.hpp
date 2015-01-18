@@ -7,6 +7,8 @@
 # include <vector>
 # include "IMonitorDisplay.hpp"
 # include <menu.h>
+# include "Module.hpp"
+# include "HostModule.hpp"
 
 class MonitorNcurses : public IMonitorDisplay{
     public:
@@ -15,6 +17,7 @@ class MonitorNcurses : public IMonitorDisplay{
         virtual ~MonitorNcurses();
         MonitorNcurses & operator=(MonitorNcurses const & rhs);
         virtual void    init();
+        void            initModules();
         virtual void    quit();
         int             getX();
         int             getY();
@@ -22,10 +25,12 @@ class MonitorNcurses : public IMonitorDisplay{
         void            setX(int);
         void            play();
         void            update();
+        std::vector<Module *>     getModules();
+        std::vector<Module *> _modules;
     protected:
         int                 _x;
         int                 _y;
-        std::vector<int>  modules;
+        Module              *_host;
 };
 
 #endif // MONITORNCURSES_HPP

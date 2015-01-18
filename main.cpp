@@ -10,12 +10,15 @@
 #include <QSlider>
 #include "MonitorNcurses.hpp"
 #include "IMonitorDisplay.hpp"
+#include "Module.hpp"
+#include "HostModule.hpp"
 
 int main(int argc, char *argv[])
 {
     if (argv[1]){
         MonitorNcurses w;
         w.init();
+//        w.play();
         w.quit();
         return 0;
     }
