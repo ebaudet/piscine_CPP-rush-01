@@ -32,6 +32,8 @@ std::string     HostModule::getData(void) {
     struct passwd *passwd;
     std::string     result;
 
+    uname(&data);
+
     result.append("SYSNAME : ");
     result.append(data.sysname);
     result.append("\n");

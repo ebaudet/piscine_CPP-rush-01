@@ -20,7 +20,7 @@ MonitorQt::MonitorQt(int argc, char *argv[]) {
     this->_qwindow = new QMainWindow();
     this->_qwindow->setFixedSize(700,500);
     this->_onglets = new QTabWidget(this->_qwindow);
-    this->_onglets->setGeometry(30, 20, 500, 160);
+    this->_onglets->setGeometry(30, 20, 650, 400);
 }
 
 MonitorQt::~MonitorQt(void)
