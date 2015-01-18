@@ -78,6 +78,8 @@ void    drawModule(struct s_mod *struc){
         mvwprintw(stdscr, struc->module->getY(), i, "*");
         mvwprintw(stdscr, struc->module->getY() + 8, i, "*");
     }
+    std::string test = struc->module->getData();
+    mvprintw(12, ((x / 2) - 18), test.c_str());
 }
 
 void    MonitorNcurses::init(){
