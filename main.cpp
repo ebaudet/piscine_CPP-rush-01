@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
         MonitorNcurses display;
 
         display.init();
-//        display.play();
+        display.play();
         display.quit();
 
         return 0;
