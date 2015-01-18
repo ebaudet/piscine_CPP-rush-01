@@ -8,14 +8,14 @@
 #include <QVBoxLayout>
 #include <QProgressBar>
 #include <QSlider>
-#include <ncurses.h>
-
+//#include "MonitorNcurses.hpp"
 
 int main(int argc, char *argv[])
 {
     if (argv[1]){
-        initscr();
-        std::cout << "test OK" << std::endl;
+//        MonitorNcurses w;
+//        w.init();
+//        w.quit();
         return 0;
     }
 
