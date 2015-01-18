@@ -6,7 +6,7 @@
 #    By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/05 17:40:16 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/18 02:14:10 by ebaudet          ###   ########.fr        #
+#    Updated: 2015/01/18 17:31:57 by ebaudet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ DISTNAME      = $(PROJECT_NAME)1.0.0
 DISTDIR 	  = .tmp/$(PROJECT_NAME)1.0.0
 LINK          = g++
 LFLAGS        = -headerpad_max_install_names -Wl,-syslibroot,$(DIR_XCODE_APP)/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -mmacosx-version-min=10.7 -Wl,-rpath,$(DIR_QT)/clang_64/lib
-LIBS          = $(SUBLIBS) -F $(DIR_QT)/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F $(DIR_QT)/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL -lncurses
 AR            = $(DIR_XCODE_APP)/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = $(DIR_XCODE_APP)/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
