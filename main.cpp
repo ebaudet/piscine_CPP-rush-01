@@ -8,14 +8,14 @@
 #include <QVBoxLayout>
 #include <QProgressBar>
 #include <QSlider>
-//#include "MonitorNcurses.hpp"
+#include "MonitorNcurses.hpp"
 
 int main(int argc, char *argv[])
 {
     if (argv[1]){
-//        MonitorNcurses w;
-//        w.init();
-//        w.quit();
+        MonitorNcurses w;
+        w.init();
+        w.quit();
         return 0;
     }
 

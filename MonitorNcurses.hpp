@@ -13,7 +13,7 @@ class MonitorNcurses : public IMonitorDisplay{
         virtual ~MonitorNcurses();
         MonitorNcurses & operator=(MonitorNcurses const & rhs);
         virtual void    init();
-        virtual void quit();
+        virtual void    quit();
 };
 
 #endif // MONITORNCURSES_HPP

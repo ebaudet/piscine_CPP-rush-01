@@ -23,7 +23,7 @@ MonitorNcurses &    MonitorNcurses::operator=(MonitorNcurses const & rhs){
 
 void    MonitorNcurses::init(){
     initscr();
-//	getmaxyx(stdscr, this->_heigth, this->_width);
+//    getmaxyx(stdscr, this->_heigth, this->_width);
     curs_set(FALSE);
     keypad(stdscr, TRUE);
     timeout(25);

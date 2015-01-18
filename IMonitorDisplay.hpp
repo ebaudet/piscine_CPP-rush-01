@@ -8,9 +8,5 @@ class IMonitorDisplay{
         virtual ~IMonitorDisplay() = 0;
 };
 
-IMonitorDisplay::~IMonitorDisplay(){
-
-}
-
 #endif // IMONITORDISPLAY
 

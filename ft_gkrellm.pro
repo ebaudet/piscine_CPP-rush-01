@@ -14,7 +14,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         Qtwindow.cpp \
-    MonitorNcurses.cpp
+    MonitorNcurses.cpp \
+    IMonitorDisplay.cpp
 
 HEADERS  += Qtwindow.h \
     IMonitorDisplay.hpp \
