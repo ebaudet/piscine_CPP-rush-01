@@ -13,7 +13,7 @@
 #ifndef MONITORQT_HPP
 # define MONITORQT_HPP
 
-#include "Qtwindow.h"
+#include <QMainWindow>
 #include "IMonitorDisplay.hpp"
 #include <QApplication>
 #include <QPushButton>
@@ -24,31 +24,38 @@
 #include <QProgressBar>
 #include <QSlider>
 #include <iostream>
+#include <algorithm>
 #include <vector>
+#include "Module.hpp"
 
 class MonitorQt : public IMonitorDisplay
 {
 private:
-    QApplication        *_qa;
-    QtWindow            *_qwindow;
-    std::vector<QWidget *>   _qwidget;
+    QApplication            *_qa;
+    QMainWindow             *_qwindow;
+    QTabWidget              *_onglets;
+    std::vector<QWidget *>  _qwidget;
+    std::vector<Module *>   _modules;
+    int                     addWidget(QWidget *);
+
+
+    MonitorQt(MonitorQt const &);
     MonitorQt(void);
+    MonitorQt& operator=(MonitorQt const &);
 
 public:
     MonitorQt(int, char **);
-	MonitorQt(MonitorQt const &);
-	MonitorQt& operator=(MonitorQt const &);
 	~MonitorQt(void);
 	
 	// member functions
 	void	init();
 	void	quit();
     void    play();
-    int     addWidget(void);
+    int     addModule(Module *);
 
     // getters & setters
     QApplication    *getQA(void) const;
-    QtWindow        *getQWindow(void) const;
+    QMainWindow     *getQWindow(void) const;
 };
 
 

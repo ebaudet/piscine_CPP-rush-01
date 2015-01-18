@@ -17,26 +17,18 @@
  * ************************************************************************** */
 MonitorQt::MonitorQt(int argc, char *argv[]) {
     this->_qa = new QApplication(argc, argv);
-    this->_qwindow = new QtWindow();
-
-
+    this->_qwindow = new QMainWindow();
+    this->_qwindow->setFixedSize(700,500);
+    this->_onglets = new QTabWidget(this->_qwindow);
+    this->_onglets->setGeometry(30, 20, 500, 160);
 }
 
-MonitorQt::MonitorQt(MonitorQt const &instance)
-{
-	*this = instance;
-}
-MonitorQt& MonitorQt::operator=(MonitorQt const &rhs)
-{
-    this->_qa = rhs.getQA();
-    this->_qwindow = rhs.getQWindow();
-	return *this;
-}
 MonitorQt::~MonitorQt(void)
 {
 	std::cout << "desctructeur MonitorQt" << std::endl;
     delete this->_qwindow;
     delete this->_qa;
+    delete this->_onglets;
 	return ;
 }
 
@@ -46,9 +38,6 @@ MonitorQt::~MonitorQt(void)
 
 void	MonitorQt::init() {
 	std::cout << "appel a MonitorQt::init()" << std::endl;
-    // 1 : Créer le QTabWidget
-    QTabWidget *onglets = new QTabWidget(this->_qwindow);
-    onglets->setGeometry(30, 20, 240, 160);
 
     // 2 : Créer les pages, en utilisant un widget parent pour contenir chacune des pages
     QWidget *page1 = new QWidget;
@@ -90,9 +79,9 @@ void	MonitorQt::init() {
     page3->setAlignment(Qt::AlignCenter);
 
     // 4 : ajouter les onglets au QTabWidget, en indiquant la page qu'ils contiennent
-    onglets->addTab(page1, "Coordonnées");
-    onglets->addTab(page2, "Progression");
-    onglets->addTab(page3, "Image");
+    this->_onglets->addTab(page1, "Coordonnées");
+    this->_onglets->addTab(page2, "Progression");
+    this->_onglets->addTab(page3, "Image");
 }
 void	MonitorQt::quit() {
 	std::cout << "appel a MonitorQt::quit()" << std::endl;
@@ -101,10 +90,20 @@ void    MonitorQt::play() {
     this->_qwindow->show();
 }
 
-int    MonitorQt::addWidget(void) {
+int     MonitorQt::addModule(Module *module) {
+    int     position = std::distance(this->_modules.begin(), this->_modules.end());
+
+    this->_modules.push_back(module);
+    QWidget *widget = new QWidget();
+
+    this->_onglets->addTab(widget, QString(module->getName().c_str()));
+    this->addWidget(widget);
+    return position;
+}
+int    MonitorQt::addWidget(QWidget *widget) {
     int     position = std::distance(this->_qwidget.begin(), this->_qwidget.end());
 
-    this->_qwidget.insert(this->_qwidget.end(), 1, new QWidget);
+    this->_qwidget.push_back(widget);
     return position;
 }
 
@@ -114,6 +113,6 @@ int    MonitorQt::addWidget(void) {
 QApplication    *MonitorQt::getQA(void) const {
     return this->_qa;
 }
-QtWindow        *MonitorQt::getQWindow(void) const {
+QMainWindow     *MonitorQt::getQWindow(void) const {
     return  this->_qwindow;
 }
