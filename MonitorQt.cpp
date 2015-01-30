@@ -109,6 +109,15 @@ int     MonitorQt::addModule(Module *module) {
         vbox->addWidget(label);
         widget->setLayout(vbox);
     }
+    else if (module->typeData() == 2)
+    {
+        QLabel *label = new QLabel();
+        label->setText(QString(module->getData().c_str()));
+
+        QVBoxLayout *vbox = new QVBoxLayout;
+        vbox->addWidget(label);
+        widget->setLayout(vbox);
+    }
 
     this->addWidget(widget);
     return position;

@@ -12,7 +12,7 @@ HostModule::HostModule() : Module("Hostname / Username")
 
 }
 
-HostModule::HostModule(HostModule const &) : Module("Hostname / Username")
+HostModule::HostModule(HostModule const &hm) : Module(hm)
 {
 
 }
