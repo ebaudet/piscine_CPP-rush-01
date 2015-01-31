@@ -33,53 +33,21 @@ void    MonitorNcurses::initModules(){
     host->module->setSizeY(8);
     host->module->setSizeX(42);
     host->module->setX((this->_x / 2) - 21);
-    host->module->setY(10);
+    host->module->setY((this->_mod.size() > 0 ? this->_mod.size() * 10 : 10));
     host->win = subwin(stdscr, host->module->getSizeY(), host->module->getSizeX(), host->module->getY(), host->module->getX());
 
-    this->_mod.push_back(host);
-    struct s_mod *host2 = new struct s_mod();
-    host2->module = new HostModule();
-    host2->module->setSizeY(8);
-    host2->module->setSizeX(42);
-    host2->module->setX((this->_x / 2) - 21);
-    host2->module->setY(30);
-    host2->win = subwin(stdscr, host2->module->getSizeY(), host2->module->getSizeX(), host2->module->getY(), host2->module->getX());
-    this->_mod.push_back(host);
-
-    struct s_mod *host3 = new struct s_mod();
-    host3->module = new HostModule();
-    host3->module->setSizeY(8);
-    host3->module->setSizeX(42);
-    host3->module->setX((this->_x / 2) - 21);
-    host3->module->setY(60);
-    host3->win = subwin(stdscr, host3->module->getSizeY(), host3->module->getSizeX(), host3->module->getY(), host3->module->getX());
     this->_mod.push_back(host);
 }
 
 void    drawModule(struct s_mod *struc){
-//    for (int i = 0; i < struc->module->getSizeY(); i++){
-//        mvwprintw(struc->win, i, 0, "*");
-//        mvwprintw(struc->win, i, 41, "*");
-//    }
-//    for (int i = 0; i < struc->module->getSizeX(); i++){
-//        mvwprintw(struc->win, 0, i, "*");
-//        mvwprintw(struc->win, 7, i, "*");
-//    }
-
-    int x;
-    int y;
-    getmaxyx(stdscr, y, x);
-
-    mvprintw(8, ((x / 2) - 18), struc->module->getName().c_str());
-    for (int i = struc->module->getY(); i < struc->module->getY() + struc->module->getSizeY(); i++){
-        mvwprintw(stdscr, i, (x / 2) - 21, "*");
-        mvwprintw(stdscr, i, ((x / 2) - 21) + 41, "*");
+    for (int i = 0; i < struc->module->getSizeY(); i++){
+        mvwprintw(struc->win, i, 0, "*");
+        mvwprintw(struc->win, i, 41, "*");
     }
-    for (int i = ((x / 2) - 21); i < ((x / 2) - 21) + struc->module->getSizeX(); i++){
-        mvwprintw(stdscr, struc->module->getY(), i, "*");
-        mvwprintw(stdscr, struc->module->getY() + 8, i, "*");
+    for (int i = 0; i < struc->module->getSizeX(); i++){
+        mvwprintw(struc->win, 0, i, "*");
+        mvwprintw(struc->win, 7, i, "*");
     }
-    std::string test = struc->module->getData();
 }
 
 void    MonitorNcurses::init(){
