@@ -9,6 +9,8 @@
 # include "IMonitorDisplay.hpp"
 # include "Module.hpp"
 # include "HostModule.hpp"
+# include "OsModule.hpp"
+# include "DateModule.hpp"
 # include <ncurses.h>
 # include <string.h>
 # include <algorithm>

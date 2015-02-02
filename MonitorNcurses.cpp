@@ -45,22 +45,26 @@ void    MonitorNcurses::initAttrModules(Module *module){
     host->module->setSizeY(8);
     host->module->setSizeX(42);
     this->displayAlgo(host);
+
     host->win = subwin(stdscr, host->module->getSizeY(), host->module->getSizeX(), host->module->getY(), host->module->getX());
+    mvwprintw(host->win, 1, 3, host->module->getName().c_str());
+    mvwprintw(host->win, 3, 3, host->module->getData().c_str());
     this->_mod.push_back(host);
 }
 
 void    MonitorNcurses::initModules(){
     this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
-    this->initAttrModules(new HostModule());
+    this->initAttrModules(new DateModule());
+    this->initAttrModules(new OsModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
+//    this->initAttrModules(new HostModule());
 }
 
 void    drawModule(struct s_mod *struc){
@@ -77,9 +81,6 @@ void    drawModule(struct s_mod *struc){
 void    MonitorNcurses::init(){
     initscr();
     getmaxyx(stdscr, this->_y, this->_x);
-
-//    this->quit();
-
     curs_set(FALSE);
     keypad(stdscr, TRUE);
     timeout(25);
@@ -89,10 +90,6 @@ void    MonitorNcurses::init(){
     wborder(stdscr, 0, 0, 0, 0, 0, 0, 0, 0);
     initModules();
     for_each(this->_mod.begin(), this->_mod.end(), drawModule);
-
-//    std::string test = this->_mod.front()->module->getData();
-//    mvprintw(12, ((this->_x / 2) - 18), test.c_str());
-//    mvprintw(42, ((this->_x / 2) - 18), test.c_str());
     refresh();
     return ;
 }
@@ -100,8 +97,6 @@ void    MonitorNcurses::quit(){
     endwin();
     std::cout << "WIDTH = " << this->getX() << std::endl;
     std::cout << "HEIGTH = " << this->getY() << std::endl;
-//    std::cout << "Size = " << this->_mod.size() << std::endl;
-//    std::cout << "STRUCT Size = " << this->_mod.size() << " , size y = " << this->_mod.front()->module->getSizeY() << std::endl;
     exit(0);
 }
 
@@ -122,7 +117,13 @@ void    MonitorNcurses::setY(int y){
 }
 
 void    MonitorNcurses::update(){
-
+    getmaxyx(stdscr, this->_y, this->_x);
+    std::vector<struct s_mod *>::iterator it = this->_mod.begin();
+    while (it != this->_mod.end()){
+        displayAlgo(*it);
+        it++;
+    }
+    refresh();
 }
 
 void    MonitorNcurses::play(){
@@ -138,6 +139,7 @@ void    MonitorNcurses::play(){
             else if (key == ' '){
 
             }
+//            this->update();
         }
     }
 }
