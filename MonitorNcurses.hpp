@@ -11,6 +11,7 @@
 # include "HostModule.hpp"
 # include "OsModule.hpp"
 # include "DateModule.hpp"
+# include "CpuModule.hpp"
 # include <ncurses.h>
 # include <string.h>
 # include <algorithm>

@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     Module.cpp \
     HostModule.cpp \
     OsModule.cpp \
-    DateModule.cpp
+    DateModule.cpp \
+    CpuModule.cpp
 
 HEADERS  += Qtwindow.h \
     IMonitorDisplay.hpp \
@@ -31,7 +32,8 @@ HEADERS  += Qtwindow.h \
     Module.hpp \
     HostModule.hpp \
     OsModule.hpp \
-    DateModule.hpp
+    DateModule.hpp \
+    CpuModule.hpp
 
 LIBS     += -lncurses
 

@@ -56,7 +56,7 @@ void    MonitorNcurses::initModules(){
     this->initAttrModules(new HostModule());
     this->initAttrModules(new DateModule());
     this->initAttrModules(new OsModule());
-//    this->initAttrModules(new HostModule());
+    this->initAttrModules(new CpuModule());
 //    this->initAttrModules(new HostModule());
 //    this->initAttrModules(new HostModule());
 //    this->initAttrModules(new HostModule());
