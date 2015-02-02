@@ -116,13 +116,21 @@ void    MonitorNcurses::setY(int y){
     this->_y = y;
 }
 
+void    updateModule(struct s_mod *host){
+    mvwprintw(host->win, 1, 3, host->module->getName().c_str());
+    mvwprintw(host->win, 3, 3, host->module->getData().c_str());
+}
+
 void    MonitorNcurses::update(){
-    getmaxyx(stdscr, this->_y, this->_x);
-    std::vector<struct s_mod *>::iterator it = this->_mod.begin();
-    while (it != this->_mod.end()){
-        displayAlgo(*it);
-        it++;
-    }
+//    getmaxyx(stdscr, this->_y, this->_x);
+//    std::vector<struct s_mod *>::iterator it = this->_mod.begin();
+//    while (it != this->_mod.end()){
+//        displayAlgo(*it);
+//        it++;
+//    }
+    erase();
+    for_each(this->_mod.begin(), this->_mod.end(), updateModule);
+    for_each(this->_mod.begin(), this->_mod.end(), drawModule);
     refresh();
 }
 
@@ -139,7 +147,7 @@ void    MonitorNcurses::play(){
             else if (key == ' '){
 
             }
-//            this->update();
         }
+        this->update();
     }
 }
