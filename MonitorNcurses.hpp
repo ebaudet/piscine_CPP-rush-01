@@ -29,6 +29,7 @@ class MonitorNcurses : public IMonitorDisplay{
         void            setX(int);
         void            play();
         void            update();
+        void            displayAlgo(struct s_mod *);
 //        std::vector<Module *>     getModules();
 //        std::vector<Module *> _modules;
         std::vector<struct s_mod *>    _mod;
