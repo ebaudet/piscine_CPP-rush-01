@@ -10,6 +10,7 @@
 # include "Module.hpp"
 # include "HostModule.hpp"
 # include <ncurses.h>
+# include <string.h>
 # include <algorithm>
 
 class MonitorNcurses : public IMonitorDisplay{
@@ -20,6 +21,7 @@ class MonitorNcurses : public IMonitorDisplay{
         MonitorNcurses & operator=(MonitorNcurses const & rhs);
         virtual void    init();
         void            initModules();
+                void            initAttrModules(Module *module);
         virtual void    quit();
         int             getX();
         int             getY();
