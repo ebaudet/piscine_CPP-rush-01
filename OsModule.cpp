@@ -29,7 +29,6 @@ OsModule &    OsModule::operator=(OsModule const & rhs){
 
 std::string     OsModule::getData(void) {
     struct utsname  data;
-    struct passwd   *passwd;
     std::string     result;
 
     uname(&data);
