@@ -2,6 +2,7 @@
 #define CPUMODULE_HPP
 
 # include "Module.hpp"
+# include <sstream>
 
 class CpuModule : public Module
 {

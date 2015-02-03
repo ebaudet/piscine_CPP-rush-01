@@ -34,7 +34,7 @@ void    MonitorNcurses::displayAlgo(struct s_mod *host){
     pos_x = ((this->_mod.size() % max) * host->module->getSizeX() + 2);
     int nb_l = (((this->_mod.size() + 1) * (host->module->getSizeX())) / (this->getX()));
     nb_l = this->_mod.size() == 0 ? 0 : nb_l;
-    pos_y = (nb_l > 0 ? (nb_l * (host->module->getSizeY())) : 2);
+    pos_y = (nb_l > 0 ? (nb_l * (8)) : 2);
     host->module->setX(pos_x);
     host->module->setY(pos_y);
 }
@@ -44,11 +44,14 @@ void    MonitorNcurses::initAttrModules(Module *module){
     host->module = module;
     host->module->setSizeY(8);
     host->module->setSizeX(42);
+    if (host->module->getName().compare("CPU") == 0)
+        host->module->setSizeY(23);
     this->displayAlgo(host);
-
     host->win = subwin(stdscr, host->module->getSizeY(), host->module->getSizeX(), host->module->getY(), host->module->getX());
     mvwprintw(host->win, 1, 3, host->module->getName().c_str());
     mvwprintw(host->win, 3, 3, host->module->getData().c_str());
+
+
     this->_mod.push_back(host);
 }
 
@@ -56,26 +59,21 @@ void    MonitorNcurses::initModules(){
     this->initAttrModules(new HostModule());
     this->initAttrModules(new DateModule());
     this->initAttrModules(new OsModule());
+    this->initAttrModules(new DateModule());
+    this->initAttrModules(new OsModule());
     this->initAttrModules(new CpuModule());
-//    this->initAttrModules(new HostModule());
-//    this->initAttrModules(new HostModule());
-//    this->initAttrModules(new HostModule());
-//    this->initAttrModules(new HostModule());
-//    this->initAttrModules(new HostModule());
-//    this->initAttrModules(new HostModule());
-//    this->initAttrModules(new HostModule());
-//    this->initAttrModules(new HostModule());
 }
 
 void    drawModule(struct s_mod *struc){
-    for (int i = 0; i < struc->module->getSizeY(); i++){
-        mvwprintw(struc->win, i, 0, "*");
-        mvwprintw(struc->win, i, struc->module->getSizeX() - 1, "*");
-    }
-    for (int i = 0; i < struc->module->getSizeX(); i++){
-        mvwprintw(struc->win, 0, i, "*");
-        mvwprintw(struc->win, struc->module->getSizeY() - 1, i, "*");
-    }
+    wborder(struc->win, 0, 0, 0, 0, 0, 0, 0, 0);
+//    for (int i = 0; i < struc->module->getSizeY(); i++){
+//        mvwprintw(struc->win, i, 0, "*");
+//        mvwprintw(struc->win, i, struc->module->getSizeX() - 1, "*");
+//    }
+//    for (int i = 0; i < struc->module->getSizeX(); i++){
+//        mvwprintw(struc->win, 0, i, "*");
+//        mvwprintw(struc->win, struc->module->getSizeY() - 1, i, "*");
+//    }
 }
 
 void    MonitorNcurses::init(){
@@ -129,7 +127,10 @@ void    MonitorNcurses::update(){
 //        it++;
 //    }
     erase();
+    wborder(stdscr, 0, 0, 0, 0, 0, 0, 0, 0);
+    init_pair(1, COLOR_MAGENTA, COLOR_BLACK);
     for_each(this->_mod.begin(), this->_mod.end(), updateModule);
+    init_pair(1, COLOR_RED, COLOR_BLACK);
     for_each(this->_mod.begin(), this->_mod.end(), drawModule);
     refresh();
 }
