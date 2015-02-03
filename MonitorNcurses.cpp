@@ -34,7 +34,7 @@ void    MonitorNcurses::displayAlgo(struct s_mod *host){
     pos_x = ((this->_mod.size() % max) * host->module->getSizeX() + 2);
     int nb_l = (((this->_mod.size() + 1) * (host->module->getSizeX())) / (this->getX()));
     nb_l = this->_mod.size() == 0 ? 0 : nb_l;
-    pos_y = (nb_l > 0 ? (nb_l * (host->module->getSizeY())) : 2);
+    pos_y = (nb_l > 0 ? (nb_l * (8)) : 2);
     host->module->setX(pos_x);
     host->module->setY(pos_y);
 }
