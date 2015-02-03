@@ -20,10 +20,16 @@ CpuModule &    CpuModule::operator=(CpuModule const & rhs){
 }
 
 std::string     CpuModule::getData(void) {
-    std::string         result;
+    FILE 						*input;
+    char						buffer[512];
+    std::stringstream			result;
 
-    result = "YOLLOOO\n";
-    return result;
+    if(not (input = popen("system_profiler SPHardwareDataType", "r")))
+        return "FUCK";
+    while(fgets(buffer, sizeof(buffer), input))
+        result << buffer;
+    pclose(input);
+    return result.str();
 }
 
 int         CpuModule::typeData(void) {
