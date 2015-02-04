@@ -60,6 +60,7 @@ void    MonitorNcurses::initModules(){
     this->initAttrModules(new DateModule());
     this->initAttrModules(new OsModule());
     this->initAttrModules(new CpuModule());
+    this->initAttrModules(new RamModule());
 }
 
 void    drawModule(struct s_mod *struc){
@@ -79,7 +80,7 @@ void    MonitorNcurses::init(){
     getmaxyx(stdscr, this->_y, this->_x);
     curs_set(FALSE);
     keypad(stdscr, TRUE);
-    timeout(25);
+    timeout(50);
     start_color();
     init_pair(1, COLOR_RED, COLOR_BLACK);
     attron(COLOR_PAIR(1));

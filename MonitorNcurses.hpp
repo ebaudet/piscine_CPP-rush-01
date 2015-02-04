@@ -6,15 +6,17 @@
 # include <string>
 # include <vector>
 # include <list>
+# include <ncurses.h>
+# include <string.h>
+# include <algorithm>
+
 # include "IMonitorDisplay.hpp"
 # include "Module.hpp"
 # include "HostModule.hpp"
 # include "OsModule.hpp"
 # include "DateModule.hpp"
 # include "CpuModule.hpp"
-# include <ncurses.h>
-# include <string.h>
-# include <algorithm>
+# include "RamModule.hpp"
 
 class MonitorNcurses : public IMonitorDisplay{
     public:
