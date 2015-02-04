@@ -17,6 +17,7 @@
 # include "DateModule.hpp"
 # include "CpuModule.hpp"
 # include "RamModule.hpp"
+# include "NetworkModule.hpp"
 
 class MonitorNcurses : public IMonitorDisplay{
     public:

@@ -44,8 +44,8 @@ void    MonitorNcurses::initAttrModules(Module *module){
     host->module = module;
     host->module->setSizeY(8);
     host->module->setSizeX(42);
-    if (host->module->getName().compare("CPU") == 0)
-        host->module->setSizeY(23);
+    if (host->module->getName().compare("CPU") == 0 || host->module->getName().compare("Network") == 0)
+        host->module->setSizeY(25);
     this->displayAlgo(host);
     host->win = subwin(stdscr, host->module->getSizeY(), host->module->getSizeX(), host->module->getY(), host->module->getX());
     mvwprintw(host->win, 1, 3, host->module->getName().c_str());
@@ -59,8 +59,9 @@ void    MonitorNcurses::initModules(){
     this->initAttrModules(new HostModule());
     this->initAttrModules(new DateModule());
     this->initAttrModules(new OsModule());
-    this->initAttrModules(new CpuModule());
     this->initAttrModules(new RamModule());
+    this->initAttrModules(new CpuModule());
+    this->initAttrModules(new NetworkModule());
 }
 
 void    drawModule(struct s_mod *struc){
