@@ -93,10 +93,10 @@ void	MonitorQt::quit() {
 }
 void    MonitorQt::play() {
     this->_qwindow->show();
-    while (42)
-    {
-        this->_qwindow->update();
-    }
+//    while (42)
+//    {
+//        this->_qwindow->update();
+//    }
 }
 
 int     MonitorQt::addModule(Module *module) {
