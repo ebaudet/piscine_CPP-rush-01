@@ -27,6 +27,10 @@
 #include <algorithm>
 #include <vector>
 #include "Module.hpp"
+#include "HostModule.hpp"
+#include "OsModule.hpp"
+#include "DateModule.hpp"
+#include "CpuModule.hpp"
 
 class MonitorQt : public IMonitorDisplay
 {

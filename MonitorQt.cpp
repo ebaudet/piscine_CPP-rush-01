@@ -39,6 +39,11 @@ MonitorQt::~MonitorQt(void)
 void	MonitorQt::init() {
 	std::cout << "appel a MonitorQt::init()" << std::endl;
 
+
+    this->addModule(new HostModule());
+    this->addModule(new OsModule());
+    this->addModule(new DateModule());
+    this->addModule(new CpuModule());
  /*   // 2 : Créer les pages, en utilisant un widget parent pour contenir chacune des pages
     QWidget *page1 = new QWidget;
     QWidget *page2 = new QWidget;
@@ -88,6 +93,10 @@ void	MonitorQt::quit() {
 }
 void    MonitorQt::play() {
     this->_qwindow->show();
+    while (42)
+    {
+        this->_qwindow->update();
+    }
 }
 
 int     MonitorQt::addModule(Module *module) {
