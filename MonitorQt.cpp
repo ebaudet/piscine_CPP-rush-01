@@ -44,6 +44,8 @@ void	MonitorQt::init() {
     this->addModule(new OsModule());
     this->addModule(new DateModule());
     this->addModule(new CpuModule());
+    this->addModule(new RamModule());
+    this->addModule(new NetworkModule());
  /*   // 2 : Créer les pages, en utilisant un widget parent pour contenir chacune des pages
     QWidget *page1 = new QWidget;
     QWidget *page2 = new QWidget;

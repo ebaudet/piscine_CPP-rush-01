@@ -31,6 +31,8 @@
 #include "OsModule.hpp"
 #include "DateModule.hpp"
 #include "CpuModule.hpp"
+#include "RamModule.hpp"
+#include "NetworkModule.hpp"
 
 class MonitorQt : public IMonitorDisplay
 {
